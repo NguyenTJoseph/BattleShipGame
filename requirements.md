@@ -34,6 +34,6 @@ Accceptance tests -->
 
 1. Board created with clickable links. Save to local Storage. Console log links & check Applications page on dev tools to verify data storage.
 
-2. Random generated computer player cells. console log array to verify population ofg cells.
+2. Random generated computer player cells. console log array to verify population of cells.
 
-3.
+3. 
