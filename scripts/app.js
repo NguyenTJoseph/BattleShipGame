@@ -16,6 +16,13 @@ function getComputerShips() {
     }
 }
 
+function getPlayerShips() {
+    let jsonData = localStorage.getItem('playerShips');
+    let parsedData = JSON.parse(jsonData);
+
+    return parsedData;
+}
+
 function getRandomPosition () {
 	let position = [];
     const characters = "ABCDE";
@@ -49,6 +56,5 @@ function computerStrike() {
     computerStrikes.push(strikeSpot);
 }
 
-    
 
     
