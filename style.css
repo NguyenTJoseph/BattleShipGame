@@ -1,0 +1,15 @@
+.column-y-axis{
+  float:left;
+  width:18%;
+  padding:10px;
+  background-color: lightgray;
+  text-align: center;
+  border:thin solid black;
+}
+
+.row-x-axis:after {
+  content: "";
+  display: table;
+  clear: both;
+  border:thin black;
+}
