@@ -43,23 +43,50 @@ function getRandomPosition () {
 // Computer Strike Function
 function computerStrike() {
     let strikeSpot = getRandomPosition();
-    let boxId = document.getElementById(strikeSpot);
+    let boxId = ('P' + document.getElementById(strikeSpot));
     for (i = 0; i < computerStrikes.length; i++){
         if (strikeSpot === computerStrikes[i]) {
             computerStrike();
         }
     }
-    
-    for (i = 0; i < 3; i++) {
+    let x = 0
+    for (x < 3; x++) {
         if (strikeSpot === playerShips[i]){
             boxId.innerText('Hit');
             computerHits++;
-        } else if (i === 3) {
-            boxId.innerText('Miss');
-        }
+            x = 0
+        } 
     } 
+    if (x === 3) {
+        boxId.innerText('Miss');
+    }
     computerStrikes.push(strikeSpot);
 }
 
+function playerStrike(event){
 
+    if (playerHits < 3 && computerHits < 3) {
+        let boxId = event.target.id;
+        for (i = 0; i < playerStrikes.length; i++){
+            if (boxId === playerStrike[i]) {
+                break;
+            }
+        }
+        let x = 0;
+        for (x < 3; x++) {
+            if (boxId === computerShips[i]) {
+                boxId.innerText = 'Hit';
+                playerHits++;
+                x = 0;
+            } 
+        }
+        if (x === 3) {
+            boxId.innerText('Miss');
+        }
+        playerStrikes.push(boxId);
+        computerStrike();
+    }
+}
+
+let compBoard = 
     

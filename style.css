@@ -12,7 +12,15 @@ table td{
   /* border-collapse:collapse; */
   text-align:center;  
   margin:30px;
-  height:80px;  
+  height:80px;
+  width:80px;  
+}
+
+table th{
+  width:15px;
+  height:20px;
+  text-align:center;
+  vertical-align: middle;  
 }
 
 h2 {
@@ -28,7 +36,7 @@ h1 {
 form {
   margin-top:50px;
 }
-
-body {
+body{
   background: linear-gradient(180deg, #00d2ff 0%, #3a47d5 100%);
 }
+
