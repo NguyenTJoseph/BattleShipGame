@@ -9,16 +9,28 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>BattleShip</h1>
-  <p>Welcome</p>
+  <img id="title" src="Images/SiteAssets/battleship-title.png">
 
-  <h2>Player Board</h2>
-
-
-
-  <div id="playerBoard">
-    <table>
-      
+<div id='info'>
+  <p> Welcome to BattleShip! </p><br>
+  <ul>
+    <li>Please choose where you would like to place your 3 ships.</li>
+    <li>To win the game you have to sink the computers ships before they sink yours.</li>
+    <li>The first player to sink all three ships wins.</li>
+    <li>After placing your ships enter your name, and press play to begin the game!</li>
+  </ul>
+  
+  <form id="name">
+    <legend>What's your name?</legend>
+    <label for = 'name'>Enter Name:</label>
+    <input type = 'text' id = 'name'></type>
+    <input class="button" type = 'submit' value = 'Play!' onclick = 'storeShips()'>
+  </form>
+</div>
+  
+  <div>
+    <table id="playerBoard">
+      <th id="boardLabel", colspan="6">Players Board</th>
       <tr>
         <th>A</th>
         <td id="A1"></td>
@@ -26,6 +38,7 @@
         <td id="A3"></td>
         <td id="A4"></td>
         <td id="A5"></td>
+        <th></th>
       </tr>
       <tr>
         <th>B</th>
@@ -70,22 +83,6 @@
     </table>
   </div>
 
-  <div id='info'>
-    <p> Welcome to BattleShip! </p>
-    <p>Please choose where you would like to place your 3 Squares.</p>
-    <p>The Objective: To Win this game you have to sink the computer squares before they sink all yours.
-      Rules: You each will take turns trying to hit each others square. If you guess all 3 blocks before your 
-      opponent then you Win! You will go back and forth until there is only one person standing. 
-      After placing your squares click 'Play' and let the adventure begin, Good luck on your voyage!</p>
-
-  <div>
-
-  <form id="name">
-    <legend>What's your name?</legend>
-    <label for = 'name'>Enter name please</label>
-    <input type = 'text' id = 'name'></type>
-    <input type = 'submit' value = 'Play!' onclick = 'storeShips()';>
-  </form>
 
 
   <script src="scripts/storeplayerships.js"></script>

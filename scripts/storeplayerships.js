@@ -5,8 +5,8 @@ let shipCount = 0;
 
 // Store user ships and changes site to board.html
 function storeShips (event) {
-    if (shipCount === 3) {
     event.preventDefault();
+    if (shipCount === 3) {
     let stringifiedData = JSON.stringify(playerShips);
     localStorage.setItem('playerShips', stringifiedData);
 
@@ -22,8 +22,10 @@ function getShipLocation(event) {
     if (shipCount < 3) {
     let tableLocation = event.target.id;
     let tdId = document.getElementById(tableLocation);
-    tdId.innerText = 'O'
-
+    let img = document.createElement('img')
+    img.setAttribute('src', '/Images/SiteAssets/Battleship-Icon.png')
+    img.setAttribute('id', 'battleShipIcon')
+    tdId.appendChild(img)
     playerShips.push(tableLocation);
     shipCount++;
     }
