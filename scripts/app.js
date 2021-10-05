@@ -50,7 +50,7 @@ function computerStrike() {
         }
     }
     let x = 0
-    for (x < 3; x++) {
+    for (x < 3; x++;) {
         if (strikeSpot === playerShips[i]){
             boxId.innerText('Hit');
             computerHits++;
@@ -64,29 +64,42 @@ function computerStrike() {
 }
 
 function playerStrike(event){
-
+    let temp = false
     if (playerHits < 3 && computerHits < 3) {
         let boxId = event.target.id;
+        let td = document.getElementById(boxId)
         for (i = 0; i < playerStrikes.length; i++){
-            if (boxId === playerStrike[i]) {
-                break;
+            if (temp === false){
+                if (boxId === playerStrikes[i]) {
+                 temp = true
+                }
             }
+            
         }
+    if (temp === false){
         let x = 0;
-        for (x < 3; x++) {
+        for (i = 0; i < 3; i++){
+        if (x < 3) {
+            x++
             if (boxId === computerShips[i]) {
-                boxId.innerText = 'Hit';
+                console.log('2')
+                td.innerText = 'Hit';
                 playerHits++;
                 x = 0;
             } 
         }
+    }
         if (x === 3) {
-            boxId.innerText('Miss');
+            td.innerText = 'Miss';
+            console.log('3')
         }
         playerStrikes.push(boxId);
         computerStrike();
     }
+    }
+
 }
 
-let compBoard = 
-    
+console.log(computerShips)
+let compBoard = document.getElementById('compBoard')
+compBoard.addEventListener('click', playerStrike)
