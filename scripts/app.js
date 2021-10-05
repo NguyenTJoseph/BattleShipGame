@@ -61,5 +61,15 @@ function computerStrike() {
     computerStrikes.push(strikeSpot);
 }
 
+function playerStrike(event){
+
+    if (playerHits < 3 && computerHits < 3) {
+        let boxId = event.target.id
+        for (i = 0; i < playerStrikes.length; i++){
+
+        }
+
+    }
+}
 
     
