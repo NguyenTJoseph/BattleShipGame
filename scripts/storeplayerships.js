@@ -22,7 +22,7 @@ function getShipLocation(event) {
     if (shipCount < 3) {
     let tableLocation = event.target.id;
     let tdId = document.getElementById(tableLocation);
-    tdId.innerText = '·'
+    tdId.innerText = 'O'
 
     playerShips.push(tableLocation);
     shipCount++;
