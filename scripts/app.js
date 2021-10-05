@@ -9,6 +9,8 @@ let computerStrikes = [];
 let playerShips = getPlayerShips();
 let computerShips = []; getComputerShips();
 
+
+// Fill the ship positions for Computer Ships
 function getComputerShips() {
     for (i = 0; i < 3; i++) {
         let temp = getRandomPosition();
@@ -16,6 +18,7 @@ function getComputerShips() {
     }
 }
 
+// Get Player Ships from localStorage
 function getPlayerShips() {
     let jsonData = localStorage.getItem('playerShips');
     let parsedData = JSON.parse(jsonData);
@@ -23,6 +26,7 @@ function getPlayerShips() {
     return parsedData;
 }
 
+// Random Position Generator
 function getRandomPosition () {
 	let position = [];
     const characters = "ABCDE";
@@ -36,6 +40,7 @@ function getRandomPosition () {
     return(position.join(''));
 }
 
+// Computer Strike Function
 function computerStrike() {
     let strikeSpot = getRandomPosition();
     let boxId = document.getElementById(strikeSpot);
