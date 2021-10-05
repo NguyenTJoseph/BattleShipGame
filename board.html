@@ -9,11 +9,24 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>BattleShip</h1>
-  <h2>Computers Board</h2>
+  <img id="title" src="Images/SiteAssets/battleship-title.png">
+
+  <div>
+    <ul id="playerlist">
+      <p>Player Hit/Miss</p>
+    </ul>
+  </div>
+<br>
+  <div>
+    <ul id="computerlist">
+      <p>Computer Hit/Miss</p>
+    </ul>
+  </div>
+
 
   <div id="board">
     <table id="compBoard">
+      <th id="boardLabel", colspan="7">Computer Board</th>
       <tr>
         <th>A</th>
         <td id="A1"></td>
@@ -21,6 +34,7 @@
         <td id="A3"></td>
         <td id="A4"></td>
         <td id="A5"></td>
+        <th></th>
       </tr>
       <tr>
         <th>B</th>
@@ -65,10 +79,10 @@
     </table>
   </div>
 
-  <h2>Player Board</h2>
 
   <div id="playerBoard">
     <table>
+      <th id="boardLabel", colspan="7">Player Board</th>
       <tr>
         <th>A</th>
         <td id="PA1"></td>
@@ -76,6 +90,7 @@
         <td id="PA3"></td>
         <td id="PA4"></td>
         <td id="PA5"></td>
+        <th></th>
       </tr>
       <tr>
         <th>B</th>
@@ -120,6 +135,10 @@
     </table>
   </div>
   
+  <div id="winCard">
+  </div>
+
+
  <script src="scripts/app.js"></script>
 </body>
 </html>

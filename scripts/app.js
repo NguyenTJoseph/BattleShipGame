@@ -42,36 +42,71 @@ function getRandomPosition () {
 
 // Computer Strike Function
 function computerStrike() {
+if (playerHits !== 3){
+    let list = document.getElementById('computerlist')
     let strikeSpot = getRandomPosition();
-    let boxId = ('P' + document.getElementById(strikeSpot));
+    let id = ('P' + strikeSpot);
+    let boxId = document.getElementById(id);
+    let temp = false;
+
     for (i = 0; i < computerStrikes.length; i++){
         if (strikeSpot === computerStrikes[i]) {
-            computerStrike();
+            temp = true;
         }
     }
+
+    if (temp === false) {
     let x = 0
-    for (x < 3; x++;) {
+    for (i = 0;i < 3; i++) {
+        x++
         if (strikeSpot === playerShips[i]){
-            boxId.innerText('Hit');
+            let icon = document.getElementById(id).childNodes[0]
+                console.log(icon)
+                icon.src = '/Images/SiteAssets/Explosion.png'
+                icon.setAttribute('id', 'explosion')
             computerHits++;
-            x = 0
+            x = 0;
         } 
     } 
     if (x === 3) {
-        boxId.innerText('Miss');
+        boxId.innerText = 'Miss';
+    } 
+    // Move List
+    let li = document.createElement('li');
+    li.innerText = strikeSpot;
+    list.appendChild(li);
+
+    if (computerHits === 3) {
+        let wincard = document.getElementById('winCard')
+            let text = document.createElement('p')
+            text.innerText = 'You Lose'
+            let button = document.createElement('button')
+            button.className = "button"
+            button.innerText = 'Play Again'
+            button.setAttribute('onclick', 'playAgain()')
+            wincard.appendChild(text)
+            wincard.appendChild(button)
     }
+    
     computerStrikes.push(strikeSpot);
+} else {
+    console.log('repeat');
+    computerStrike();
+}
+}
 }
 
+// Player Strike Funciton
 function playerStrike(event){
+    let list = document.getElementById('playerlist')
     let temp = false
     if (playerHits < 3 && computerHits < 3) {
-        let boxId = event.target.id;
+    let boxId = event.target.id;
         let td = document.getElementById(boxId)
         for (i = 0; i < playerStrikes.length; i++){
             if (temp === false){
                 if (boxId === playerStrikes[i]) {
-                 temp = true
+                 temp = true;
                 }
             }
             
@@ -80,10 +115,12 @@ function playerStrike(event){
         let x = 0;
         for (i = 0; i < 3; i++){
         if (x < 3) {
-            x++
+            x++;
             if (boxId === computerShips[i]) {
-                console.log('2')
-                td.innerText = 'Hit';
+                let img = document.createElement('img')
+                img.setAttribute('src', '/Images/SiteAssets/Explosion.png')
+                img.setAttribute('id', 'explosion')
+                td.appendChild(img)
                 playerHits++;
                 x = 0;
             } 
@@ -91,8 +128,24 @@ function playerStrike(event){
     }
         if (x === 3) {
             td.innerText = 'Miss';
-            console.log('3')
         }
+        // Move List
+        let li = document.createElement('li');
+        li.innerText = boxId;
+        list.appendChild(li);
+
+        if (playerHits === 3) {
+            let wincard = document.getElementById('winCard')
+            let text = document.createElement('p')
+            text.innerText = 'You Win'
+            let button = document.createElement('button')
+            button.className = "button"
+            button.innerText = 'Play Again'
+            button.setAttribute('onclick', 'playAgain()')
+            wincard.appendChild(text)
+            wincard.appendChild(button)
+        }
+        
         playerStrikes.push(boxId);
         computerStrike();
     }
@@ -100,6 +153,24 @@ function playerStrike(event){
 
 }
 
+// Load players ships into the board
+function loadShips() {
+    for (i = 0; i < playerShips.length; i++){
+        let position = ('P' + playerShips[i]);
+        let boxId = document.getElementById(position);
+        let img = document.createElement('img')
+        img.setAttribute('src', '/Images/SiteAssets/Battleship-Icon.png')
+        img.setAttribute('id', 'battleShipIcon')
+        boxId.appendChild(img)
+    }
+}
+
+function playAgain() {
+    window.location.href ="./index.html"
+}
+
+
 console.log(computerShips)
-let compBoard = document.getElementById('compBoard')
-compBoard.addEventListener('click', playerStrike)
+loadShips();
+let compBoard = document.getElementById('compBoard');
+compBoard.addEventListener('click', playerStrike);
