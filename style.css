@@ -2,7 +2,6 @@ body{
   background-image:url("Images/SiteAssets/warship-background.jpg");
   background-size:cover;
   background-position: center;
-  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
@@ -13,10 +12,12 @@ body{
 }
 
 #info{
-  border: thin solid black;
   text-align:center;
-  list-style:circle;
   margin-bottom:5%;
+  font-size:25px;
+  background-color:rgb(255, 255, 255, 0.5);
+  box-shadow:0px 0px 5px black;
+  
 }
 
 #info > p {
@@ -27,10 +28,6 @@ legend {
   font-size: 20px;
 }
 
-#info > ul {
-  
-}
-
 table{
   background-color: rgba(173, 216, 230, 0.788);
   border: thin solid black;
@@ -38,7 +35,11 @@ table{
   border-radius:5px;
   margin-left:auto;
   margin-right:auto; 
+  box-shadow:0px 0px 15px black;
+
 }
+
+  
 
 table td{
   border:thin solid black;
@@ -48,11 +49,24 @@ table td{
   width:80px;  
   text-align:center;
   vertical-align:middle;
+  color: red;
+  font-size: large;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 table td:hover {
-  background-color:lightskyblue;
+  /* background-color:lightskyblue; */
   cursor:url('Images/SiteAssets/Target.png'), auto;
+  animation-name: aiming;
+  animation-duration:1.25s;
+  animation-iteration-count:infinite;
+  animation-timing-function:ease-in-out;
+}
+
+@keyframes aiming{
+  0%{background-color:rgb(255, 1, 1, 0.1);}
+  50%{background-color:rgb(255, 1, 1, 1);}
+  100%{background-color:rgb(255, 1, 1, 0.1);}
 }
 
 table th:not(#boardLabel){
@@ -60,12 +74,10 @@ table th:not(#boardLabel){
   height:20px;
   text-align:center;
   vertical-align: middle;  
-  
 }
 
 #board{
   margin-bottom: 50px;
-  
 }
 
 h2 {
@@ -79,8 +91,8 @@ form {
 }
 
 #playerlist {
-  border:thin solid black;
-  float:left;
+  /* border:thin solid black; */
+  box-shadow: 0px 0px 5px black;
   height:30%;
   width:15%;
   margin-left:7%;
@@ -109,8 +121,8 @@ form {
 
 
 #computerlist {
-  border:thin solid black;
-  float:right;
+  /* border:thin solid black; */
+  box-shadow: 0px 0px 5px black;
   height:30%;
   width:15%;
   margin-right:7%;
@@ -143,9 +155,33 @@ form {
   font-size:20px;
 }
 
+@keyframes ship{
+  0%{
+    -webkit-transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+  }
+  50%{-webkit-transform: rotateZ(-5deg);
+    -ms-transform: rotateZ(-5deg);
+    transform: rotateZ(-5deg);
+    }
+  100%{
+    -webkit-transform: rotateZ(8deg);
+        -ms-transform: rotateZ(8deg);
+        transform: rotateZ(8deg);
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+  }
+}
 #battleShipIcon {
   height: 80px;
-  width: 80px
+  width: 80px;
+  animation-name: ship;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
 }
 
 #explosion {
@@ -155,17 +191,35 @@ form {
 
 #winCard {
   position: fixed;
-  background-color: rgb(83, 83, 83);
+  background-color: rgb(83, 83, 83, 0.9);
   top: 35%;
   left: calc(50% - 150px);
+  border-radius: 12px;
 }
+
 #winCard p {
-  padding-top: 30px;
+  padding: 30px;
   width: 300px;
   height: 200px;
   text-align: center;
-  font-size: x-large;
-  color: blue;
+  font-family: Chango, display;
+  font-size: 50px;
+  font-weight: normal;
+  color: rgba(255, 252, 252, 1);
+  font-style: normal;
+  line-height: 3.1em;
+  letter-spacing: 6px;
+  text-shadow: -4px 6px 10px rgb(43, 103, 131);
+}
+
+
+#wincard button {
+  align-items: center;
+  top: 50%;
+  width: 100%;
+  margin-left: auto;
+  display: inline-block;
+   
 }
 
 .button {
@@ -187,3 +241,79 @@ form {
     background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
     background-color:#408c99;
   }
+
+  
+  
+  @-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.applySwing {
+  -webkit-animation: swing 1s ease;
+  animation: swing 1s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}

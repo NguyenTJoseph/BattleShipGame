@@ -8,15 +8,32 @@ let computerStrikes = [];
 
 let playerShips = getPlayerShips();
 let computerShips = []; getComputerShips();
+let status = false
 
+var hitSound;
+var missSound;
+
+hitSound = new Sound("/Images/SiteAssets/hit-sound.wav");
+missSound = new Sound('/Images/SiteAssets/water-miss2.mp3')
 
 // Fill the ship positions for Computer Ships
 function getComputerShips() {
+    computerStrikes = [];
     for (i = 0; i < 3; i++) {
+        let temp2 = false
         let temp = getRandomPosition();
-        computerShips.push(temp);
+        for (x = 0;x < computerShips.length; x++) {
+            if (temp === computerShips[x]){
+                temp2 = true
+                console.log('Reload Ships')
+                
+                getComputerShips();
+        }} if (temp2 === false && computerShips.length < 3){
+            computerShips.push(temp);
+        } 
     }
 }
+
 
 // Get Player Ships from localStorage
 function getPlayerShips() {
@@ -42,6 +59,7 @@ function getRandomPosition () {
 
 // Computer Strike Function
 function computerStrike() {
+let table = document.getElementById('playerBoard')
 if (playerHits !== 3){
     let list = document.getElementById('computerlist')
     let strikeSpot = getRandomPosition();
@@ -60,21 +78,37 @@ if (playerHits !== 3){
     for (i = 0;i < 3; i++) {
         x++
         if (strikeSpot === playerShips[i]){
+            hitSound.play();
             let icon = document.getElementById(id).childNodes[0]
                 console.log(icon)
                 icon.src = '/Images/SiteAssets/Explosion.png'
                 icon.setAttribute('id', 'explosion')
             computerHits++;
             x = 0;
+            
+            let animationEndCallback = (e) => {
+                table.removeEventListener('animationend', animationEndCallback);
+                table.classList.remove('applySwing');
+}
+            table.classList.add('applySwing')
+            table.addEventListener('animationend', animationEndCallback);
+            status = false
+
+            // Move List
+            let li = document.createElement('li');
+            li.innerText = (strikeSpot + ' Hit');
+            list.appendChild(li);
         } 
     } 
     if (x === 3) {
-        boxId.innerText = 'Miss';
+        missSound.play();
+        boxId.innerText = 'MISS';
+        status = false
+        let li = document.createElement('li');
+        li.innerText = (strikeSpot + ' Miss');
+        list.appendChild(li);
     } 
-    // Move List
-    let li = document.createElement('li');
-    li.innerText = strikeSpot;
-    list.appendChild(li);
+    
 
     if (computerHits === 3) {
         let wincard = document.getElementById('winCard')
@@ -96,11 +130,13 @@ if (playerHits !== 3){
 }
 }
 
+
 // Player Strike Funciton
 function playerStrike(event){
     let list = document.getElementById('playerlist')
+    let table = document.getElementById('compBoard')
     let temp = false
-    if (playerHits < 3 && computerHits < 3) {
+    if (playerHits < 3 && computerHits < 3 && status === false) {
     let boxId = event.target.id;
         let td = document.getElementById(boxId)
         for (i = 0; i < playerStrikes.length; i++){
@@ -117,25 +153,38 @@ function playerStrike(event){
         if (x < 3) {
             x++;
             if (boxId === computerShips[i]) {
+                hitSound.play();
                 let img = document.createElement('img')
                 img.setAttribute('src', '/Images/SiteAssets/Explosion.png')
                 img.setAttribute('id', 'explosion')
                 td.appendChild(img)
                 playerHits++;
                 x = 0;
+                
+
+                let animationEndCallback = (e) => {
+                    table.removeEventListener('animationend', animationEndCallback);
+                    table.classList.remove('applySwing');
+}
+                table.classList.add('applySwing')
+                table.addEventListener('animationend', animationEndCallback);
+
+                let li = document.createElement('li');
+                li.innerText = (boxId + ' Hit');
+                list.appendChild(li);
             } 
         }
     }
         if (x === 3) {
-            td.innerText = 'Miss';
+            missSound.play();
+            td.innerText = 'MISS';
+            let li = document.createElement('li');
+            li.innerText = (boxId + ' Miss');
+            list.appendChild(li);
         }
-        // Move List
-        let li = document.createElement('li');
-        li.innerText = boxId;
-        list.appendChild(li);
 
         if (playerHits === 3) {
-            let wincard = document.getElementById('winCard')
+            let wincard = document.getElementById('winCard') 
             let text = document.createElement('p')
             text.innerText = 'You Win'
             let button = document.createElement('button')
@@ -147,7 +196,8 @@ function playerStrike(event){
         }
         
         playerStrikes.push(boxId);
-        computerStrike();
+        status = true
+        setTimeout(computerStrike, 3500)
     }
     }
 
@@ -169,6 +219,23 @@ function playAgain() {
     window.location.href ="./index.html"
 }
 
+// audio for explosion below
+
+function Sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.sound.volume = 0.05;
+    this.play = function(){
+    this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+  }
 
 console.log(computerShips)
 loadShips();
