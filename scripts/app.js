@@ -9,12 +9,17 @@ let computerStrikes = [];
 let playerShips = getPlayerShips();
 let computerShips = []; getComputerShips();
 let status = false
+let playerName = getPlayerName();
 
 var hitSound;
 var missSound;
+var winSound;
+var loseSound;
 
 hitSound = new Sound("/Images/SiteAssets/hit-sound.wav");
-missSound = new Sound('/Images/SiteAssets/water-miss2.mp3')
+missSound = new Sound('/Images/SiteAssets/water-miss2.mp3');
+winSound = new Sound('Images/SiteAssets/applause6.wav');
+loseSound = new Sound('/Images/SiteAssets/sfxboo (1).wav');
 
 // Fill the ship positions for Computer Ships
 function getComputerShips() {
@@ -59,7 +64,9 @@ function getRandomPosition () {
 
 // Computer Strike Function
 function computerStrike() {
-let table = document.getElementById('playerBoard')
+let table = document.getElementById('playerBoard');
+let missile = document.getElementById('missile');
+missile.remove();
 if (playerHits !== 3){
     let list = document.getElementById('computerlist')
     let strikeSpot = getRandomPosition();
@@ -78,7 +85,9 @@ if (playerHits !== 3){
     for (i = 0;i < 3; i++) {
         x++
         if (strikeSpot === playerShips[i]){
+
             hitSound.play();
+
             let icon = document.getElementById(id).childNodes[0]
                 console.log(icon)
                 icon.src = '/Images/SiteAssets/Explosion.png'
@@ -101,7 +110,9 @@ if (playerHits !== 3){
         } 
     } 
     if (x === 3) {
+
         missSound.play();
+
         boxId.innerText = 'MISS';
         status = false
         let li = document.createElement('li');
@@ -112,14 +123,19 @@ if (playerHits !== 3){
 
     if (computerHits === 3) {
         let wincard = document.getElementById('winCard')
+            let name = document.createElement('p')
             let text = document.createElement('p')
             text.innerText = 'You Lose'
+            name.innerText = playerName
             let button = document.createElement('button')
             button.className = "button"
             button.innerText = 'Play Again'
             button.setAttribute('onclick', 'playAgain()')
+            wincard.appendChild(name)
             wincard.appendChild(text)
             wincard.appendChild(button)
+            
+            loseSound.play();
     }
     
     computerStrikes.push(strikeSpot);
@@ -135,6 +151,7 @@ if (playerHits !== 3){
 function playerStrike(event){
     let list = document.getElementById('playerlist')
     let table = document.getElementById('compBoard')
+    let loadBar = document.getElementById('progress-value')
     let temp = false
     if (playerHits < 3 && computerHits < 3 && status === false) {
     let boxId = event.target.id;
@@ -177,6 +194,7 @@ function playerStrike(event){
     }
         if (x === 3) {
             missSound.play();
+
             td.innerText = 'MISS';
             let li = document.createElement('li');
             li.innerText = (boxId + ' Miss');
@@ -185,18 +203,35 @@ function playerStrike(event){
 
         if (playerHits === 3) {
             let wincard = document.getElementById('winCard') 
+            let name = document.createElement('p')
             let text = document.createElement('p')
-            text.innerText = 'You Win'
+            text.innerText = 'You Won!'
+            name.innerText = playerName
             let button = document.createElement('button')
             button.className = "button"
             button.innerText = 'Play Again'
             button.setAttribute('onclick', 'playAgain()')
+            wincard.appendChild(name)
             wincard.appendChild(text)
             wincard.appendChild(button)
+            
+            winSound.play();
         }
         
         playerStrikes.push(boxId);
         status = true
+
+        let div = document.getElementById('progress')
+        let missile = document.createElement('img')
+        missile.setAttribute('src', 'Images/SiteAssets/Missile1.png')
+        missile.setAttribute('id', 'missile')
+        div.appendChild(missile)
+        let animationEndCallback = (e) => {
+            loadBar.removeEventListener('animationend', animationEndCallback);
+            loadBar.classList.remove('applyLoad');
+}
+        loadBar.classList.add('applyLoad')
+        loadBar.addEventListener('animationend', animationEndCallback);
         setTimeout(computerStrike, 3500)
     }
     }
@@ -219,7 +254,7 @@ function playAgain() {
     window.location.href ="./index.html"
 }
 
-// audio for explosion below
+// audio function below
 
 function Sound(src) {
     this.sound = document.createElement("audio");
@@ -235,7 +270,14 @@ function Sound(src) {
     this.stop = function(){
       this.sound.pause();
     }
-  }
+}
+function getPlayerName() {
+    let jsonData = localStorage.getItem('playerName');
+    let parsedData = JSON.parse(jsonData);
+    return parsedData;
+}
+
+
 
 console.log(computerShips)
 loadShips();
