@@ -13,7 +13,9 @@ function storeShips (event) {
     let name = event.target.name.value;
     let stringifiedName = JSON.stringify(name);
     localStorage.setItem('playerName', stringifiedName);
-    window.location.href ="./board.html"
+    window.location.href ="./board.html";
+    }  else {
+        alert('Please place all your ships on the board.')
     }
 }
 
@@ -22,18 +24,18 @@ function getShipLocation(event) {
     if (shipCount < 3) {
     let tableLocation = event.target.id;
     let tdId = document.getElementById(tableLocation);
-    let img = document.createElement('img')
-    img.setAttribute('src', '/Images/SiteAssets/Battleship-Icon.png')
-    img.setAttribute('id', 'battleShipIcon')
-    tdId.appendChild(img)
+    let img = document.createElement('img');
+    img.setAttribute('src', '/Images/SiteAssets/Battleship-Icon.png');
+    img.setAttribute('id', 'battleShipIcon');
+    tdId.appendChild(img);
     playerShips.push(tableLocation);
     shipCount++;
     }
 }
 
 // Adds event listener to board
-let playerBoard = document.getElementById('playerBoard')
-playerBoard.addEventListener('click', getShipLocation)
+let playerBoardEntry = document.getElementsByClassName('playerBoardEntry')[0];
+playerBoardEntry.addEventListener('click', getShipLocation);
 
 
 let form = document.getElementById('name');
