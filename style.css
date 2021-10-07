@@ -16,8 +16,7 @@ body{
   margin-bottom:5%;
   font-size:25px;
   background-color:rgb(255, 255, 255, 0.5);
-  box-shadow:0px 0px 5px black;
-  
+  box-shadow:0px 0px 5px black;  
 }
 
 #info > p {
@@ -69,17 +68,32 @@ table td:hover {
 }
 
 table th:not(#boardLabel){
-  width:15px;
+  width:20px;
   height:20px;
   text-align:center;
   vertical-align: middle;
-  font-weight:bolder;
+  font-size:20px;
+  font-weight:bold
+}
+
+#playerBoardLabel th {
+  width: fit-content;
 }
 
 #board{
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   /* height:40%;
   width:40%; */
+}
+
+.compBoard {
+  float: left;
+  margin-left: 18%; 
+}
+
+#playerBoard {
+  float: right;
+  margin-right: 18%;
 }
 
 h2 {
@@ -96,9 +110,9 @@ form {
   /* border:thin solid black; */
   box-shadow: 0px 0px 5px black;
   height:30%;
-  width:10%;
+  width:9%;
   margin-left:7%;
-  margin-top:0%;
+  margin-top:15%;
   background-color:rgb(157, 188, 207);
   overflow-y:scroll;
   position:fixed;
@@ -126,9 +140,9 @@ form {
   /* border:thin solid black; */
   box-shadow: 0px 0px 5px black;
   height:30%;
-  width:10%;
+  width:9%;
   margin-right:7%;
-  margin-top:0%;
+  margin-top:14.25%;
   background-color:rgb(157, 188, 207);
   overflow-y:scroll;
   position:fixed;
@@ -157,6 +171,12 @@ form {
   font-size:20px;
 }
 
+#playerBoardLabel {
+  text-align:center;
+  border-collapse:collapse;
+  font-size:20px;
+}
+
 @keyframes ship{
   0%{
     -webkit-transform: rotateZ(0deg);
@@ -176,6 +196,7 @@ form {
         transform: scale(1.05);
   }
 }
+
 #battleShipIcon {
   height: 80px;
   width: 60px;
@@ -196,8 +217,7 @@ form {
   background-color: rgb(83, 83, 83, 0.9);
   top: 35%;
   left: calc(50% - 150px);
-  border-radius: 12px;
-  
+  border-radius: 12px;  
 }
 
 #winCard p {
@@ -214,6 +234,7 @@ form {
   letter-spacing: 6px;
   text-shadow: -4px 6px 10px rgb(43, 103, 131);
 }
+
 #winCard p:first-of-type {
   padding-bottom: 0px;
 }
@@ -222,7 +243,6 @@ form {
   display: block;
   text-align: center;
   margin-bottom: 20px;
-
 }
 
 .button {
@@ -245,11 +265,25 @@ form {
   }
 
   .button:hover {
+    box-shadow: 2px 0px 13px -1px #276873;
     background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
     background-color:#408c99;
   }
 
-  
+  #surrender {
+    background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    background-color:#599bb3;
+    margin-left: 50px;
+    padding: 16px 32px;
+    border-radius:30px;
+    font-size:larger;
+    font-weight:bolder;
+    color:black;
+    box-shadow: 2px 0px 13px -1px #599bb3;
+    position: fixed;
+    top:30px;
+    left:20px;
+  } 
   
   @-webkit-keyframes swing
 {
