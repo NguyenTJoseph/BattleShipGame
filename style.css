@@ -283,6 +283,7 @@ form {
     position: fixed;
     top:30px;
     left:20px;
+    cursor:pointer;
   } 
   
   @-webkit-keyframes swing

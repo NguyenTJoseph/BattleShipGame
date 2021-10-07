@@ -14,6 +14,8 @@ function storeShips (event) {
     let stringifiedName = JSON.stringify(name);
     localStorage.setItem('playerName', stringifiedName);
     window.location.href ="./board.html";
+    }  else {
+        alert('Please place all your ships on the board.')
     }
 }
 
@@ -32,7 +34,7 @@ function getShipLocation(event) {
 }
 
 // Adds event listener to board
-let playerBoardEntry = document.getElementById('playerBoardEntry');
+let playerBoardEntry = document.getElementsByClassName('playerBoardEntry')[0];
 playerBoardEntry.addEventListener('click', getShipLocation);
 
 

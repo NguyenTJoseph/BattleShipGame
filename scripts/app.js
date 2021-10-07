@@ -271,7 +271,7 @@ function playerStrike(event){
             let name = document.createElement('p');
             let hitMiss = document.createElement('p');
             hitMiss.innerText = 'Hit/Miss';
-            name.innerText = playerName;
+            name.innerText = (playerName + '\'s');
             playerHitList.appendChild(name);
             playerHitList.appendChild(hitMiss);
 }
