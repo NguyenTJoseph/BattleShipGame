@@ -10,10 +10,10 @@ let status1 = false;
 let playerName = getPlayerName();
 let surrender = false;
 let missileStatus = false;
-let hitSound; //change to let from var
-let missSound; //change to let from var
-var winSound; //change to let from var
-var loseSound; //change to let from var
+let hitSound;
+let missSound;
+let winSound;
+let loseSound;
 
 hitSound = new Sound('Images/SiteAssets/hit-sound.wav');
 missSound = new Sound('Images/SiteAssets/water-miss2.mp3');

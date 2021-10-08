@@ -1,22 +1,22 @@
-body{
-  background-image:url("Images/SiteAssets/warship-background.jpg");
-  background-size:cover;
+body {
+  background-image: url('Images/SiteAssets/warship-background.jpg');
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 #title {
-  margin-left:auto;
-  margin-right:auto;
-  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-#info{
-  text-align:center;
-  margin-bottom:5%;
-  font-size:25px;
-  background-color:rgb(255, 255, 255, 0.5);
-  box-shadow:0px 0px 5px black;  
+#info {
+  text-align: center;
+  margin-bottom: 5%;
+  font-size: 25px;
+  background-color: rgb(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 5px black;  
 }
 
 #info > p {
@@ -27,63 +27,59 @@ legend {
   font-size: 20px;
 }
 
-table{
+table {
   background-color: rgba(173, 216, 230, 0.788);
   border: thin solid black;
   width: 30vw;
   height: 30vh;
-  border-radius:5px;
-  margin-left:auto;
-  margin-right:auto; 
-  box-shadow:0px 0px 15px black;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto; 
+  box-shadow: 0px 0px 15px black;
 }
 
-table td{
-  border:thin solid black;
-  text-align:center;  
-  margin:30px;
-  height:80px;
-  /* height:40%; */
-  width:80px; 
-  text-align:center;
-  vertical-align:middle;
+table td {
+  border: thin solid black;
+  text-align: center;  
+  margin: 30px;
+  height: 80px;
+  width: 80px; 
+  text-align: center;
+  vertical-align: middle;
   color: red;
   font-size: large;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 table td:hover {
-  /* background-color:lightskyblue; */
   cursor:url('Images/SiteAssets/Target.png'), auto;
   animation-name: aiming;
-  animation-duration:1.25s;
-  animation-iteration-count:infinite;
-  animation-timing-function:ease-in-out;
+  animation-duration: 1.25s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
-@keyframes aiming{
-  0%{background-color:rgb(255, 1, 1, 0.1);}
-  50%{background-color:rgb(255, 1, 1, 1);}
-  100%{background-color:rgb(255, 1, 1, 0.1);}
+@keyframes aiming {
+  0%{background-color: rgb(255, 1, 1, 0.1);}
+  50%{background-color: rgb(255, 1, 1, 1);}
+  100%{background-color: rgb(255, 1, 1, 0.1);}
 }
 
-table th:not(#boardLabel){
-  width:20px;
-  height:20px;
-  text-align:center;
+table th:not(#boardLabel) {
+  width: 20px;
+  height: 20px;
+  text-align: center;
   vertical-align: middle;
-  font-size:20px;
-  font-weight:bold
+  font-size: 20px;
+  font-weight: bold
 }
 
 #playerBoardLabel th {
   width: fit-content;
 }
 
-#board{
+#board {
   margin-bottom: 10px;
-  /* height:40%;
-  width:40%; */
 }
 
 .compBoard {
@@ -98,32 +94,31 @@ table th:not(#boardLabel){
 
 h2 {
   text-align: center;
-  margin:auto;
+  margin: auto;
   padding: 20px;
 }
 
 form {
-  margin-top:50px;
+  margin-top: 50px;
 }
 
 #playerlist {
-  /* border:thin solid black; */
   box-shadow: 0px 0px 5px black;
-  height:30%;
-  width:9%;
-  margin-left:7%;
-  margin-top:15%;
-  background-color:rgb(157, 188, 207);
-  overflow-y:scroll;
-  position:fixed;
+  height: 30%;
+  width: 9%;
+  margin-left: 7%;
+  margin-top: 15%;
+  background-color: rgb(157, 188, 207);
+  overflow-y: scroll;
+  position: fixed;
   opacity: 0.7;
   display: inline-block;
-  left:0%;
+  left: 0%;
 }
 
 #playerlist > p {
   text-align: center; 
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
   font-size: 14px;
   letter-spacing: 2px;
   word-spacing: 2px;
@@ -135,25 +130,23 @@ form {
   text-transform: uppercase;
 }
 
-
 #computerlist {
-  /* border:thin solid black; */
   box-shadow: 0px 0px 5px black;
-  height:30%;
-  width:9%;
-  margin-right:7%;
-  margin-top:14.25%;
-  background-color:rgb(157, 188, 207);
-  overflow-y:scroll;
-  position:fixed;
-  right:0%;
+  height: 30%;
+  width: 9%;
+  margin-right: 7%;
+  margin-top: 14.25%;
+  background-color: rgb(157, 188, 207);
+  overflow-y: scroll;
+  position: fixed;
+  right: 0%;
   opacity: 0.7;
   display: inline-block;
 }
 
 #computerlist > p {
   text-align: center;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
   font-size: 14px;
   letter-spacing: 2px;
   word-spacing: 2px;
@@ -166,34 +159,32 @@ form {
 }
 
 #boardLabel {
-  text-align:center;
-  border-collapse:collapse;
-  font-size:20px;
+  text-align: center;
+  border-collapse: collapse;
+  font-size: 20px;
 }
 
 #playerBoardLabel {
-  text-align:center;
-  border-collapse:collapse;
-  font-size:20px;
+  text-align: center;
+  border-collapse: collapse;
+  font-size: 20px;
 }
 
-@keyframes ship{
-  0%{
-    -webkit-transform: rotateZ(0deg);
-        -ms-transform: rotateZ(0deg);
-        transform: rotateZ(0deg);
+@keyframes ship {
+  0% {-webkit-transform: rotateZ(0deg);
+      -ms-transform: rotateZ(0deg);
+      transform: rotateZ(0deg);
   }
-  50%{-webkit-transform: rotateZ(-5deg);
+  50% {-webkit-transform: rotateZ(-5deg);
     -ms-transform: rotateZ(-5deg);
     transform: rotateZ(-5deg);
     }
-  100%{
-    -webkit-transform: rotateZ(8deg);
-        -ms-transform: rotateZ(8deg);
-        transform: rotateZ(8deg);
-        -webkit-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-        transform: scale(1.05);
+  100% {-webkit-transform: rotateZ(8deg);
+    -ms-transform: rotateZ(8deg);
+    transform: rotateZ(8deg);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
   }
 }
 
@@ -246,111 +237,98 @@ form {
 }
 
 .button {
-    box-shadow: 2px 0px 13px -1px #276873;
-    background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-    background-color:#599bb3;
-    border-radius:30px;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Trebuchet MS;
-    font-size:20px;
-    font-weight:bold;
-    padding:4px 32px;
-    text-decoration:none;
-    margin: auto;
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 20px;
+  box-shadow: 2px 0px 13px -1px #276873;
+  background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+  background-color: #599bb3;
+  border-radius: 30px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Trebuchet MS;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 4px 32px;
+  text-decoration: none;
+  margin: auto;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
   }
 
-  .button:hover {
-    box-shadow: 2px 0px 13px -1px #276873;
-    background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-    background-color:#408c99;
+.button:hover {
+  box-shadow: 2px 0px 13px -1px #276873;
+  background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+  background-color: #408c99;
   }
 
-  #surrender {
-    background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-    background-color:#599bb3;
-    margin-left: 50px;
-    padding: 16px 32px;
-    border-radius:30px;
-    font-size:larger;
-    font-weight:bolder;
-    color:black;
-    box-shadow: 2px 0px 13px -1px #599bb3;
-    position: fixed;
-    top:30px;
-    left:20px;
-    cursor:pointer;
-  } 
+#surrender {
+  background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+  background-color: #599bb3;
+  margin-left: 50px;
+  padding: 16px 32px;
+  border-radius: 30px;
+  font-size: larger;
+  font-weight: bolder;
+  color: black;
+  box-shadow: 2px 0px 13px -1px #599bb3;
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  cursor: pointer;
+} 
   
-  @-webkit-keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
-    }
-    30%
-    {
-        -webkit-transform: translateX(-5px);
-       transform: translateX(-5px);
-    } 
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
+@-webkit-keyframes swing {
+  15% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  } 
+  30% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  } 
+  50% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  65% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+  }
+  80% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
 }
-@keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
-    }
-    30%
-    {
-        -webkit-transform: translateX(-5px);
-        transform: translateX(-5px);
-    }
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
+
+@keyframes swing {
+  15% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+  30% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+  50% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  65% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+  }
+  80% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
 }
 
 .applySwing {
@@ -359,8 +337,6 @@ form {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-
-
 
 #progress {
   background: rgba(255,255,255,0.1);

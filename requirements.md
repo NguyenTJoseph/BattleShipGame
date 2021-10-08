@@ -38,6 +38,6 @@
 
 4. Loop works for all cells and loop properly through only the times needed and no more or less.
 
-5. Play full game and ensure end message appears in both winning and losing games. 
+5. Play full game and ensure end message appears in both winning and losing games.
 
 6. Able to reset game and play again.
