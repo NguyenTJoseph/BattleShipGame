@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 let playerHits = 0;
 let computerHits = 0;
@@ -23,10 +23,10 @@ loseSound = new Sound('Images/SiteAssets/sfxboo (1).wav');
 // Fill in the ship positions for Computer's Ships
 function getComputerShips() {
   computerStrikes = [];
-  for (i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i++) {
     let temp2 = false;
     let temp = getRandomPosition();
-    for (x = 0; x < computerShips.length; x++) {
+    for (let x = 0; x < computerShips.length; x++) {
       if (temp === computerShips[x]){
         temp2 = true;
         console.log('Reload Ships');
@@ -71,14 +71,14 @@ function computerStrike() {
     let id = ('P' + strikeSpot);
     let boxId = document.getElementById(id);
     let temp = false;
-    for (i = 0; i < computerStrikes.length; i++){
+    for (let i = 0; i < computerStrikes.length; i++){
       if (strikeSpot === computerStrikes[i]) {
         temp = true;
       }
     }
     if (temp === false) {
       let x = 0;
-      for (i = 0;i < 3; i++) {
+      for (let i = 0;i < 3; i++) {
         x++;
         if (strikeSpot === playerShips[i]){
           hitSound.play();
@@ -152,7 +152,7 @@ function surrenderButton() {
   }
 }
 
-// Player Strike Funciton
+// Player Strike Function
 function playerStrike(event){
   let list = document.getElementById('playerlist');
   let table = document.getElementsByClassName('compBoard')[0];
@@ -161,7 +161,7 @@ function playerStrike(event){
   if (playerHits < 3 && computerHits < 3 && status1 === false && surrender === false) {
     let boxId = event.target.id;
     let td = document.getElementById(boxId);
-    for (i = 0; i < playerStrikes.length; i++){
+    for (let i = 0; i < playerStrikes.length; i++){
       if (temp === false){
         if (boxId === playerStrikes[i]) {
           temp = true;
@@ -170,7 +170,7 @@ function playerStrike(event){
     }
     if (temp === false){
       let x = 0;
-      for (i = 0; i < 3; i++){
+      for (let i = 0; i < 3; i++){
         if (x < 3) {
           x++;
           if (boxId === computerShips[i]) {
@@ -256,7 +256,7 @@ createPlayerLabel();
 
 // Load the Player's ships into the board
 function loadShips() {
-  for (i = 0; i < playerShips.length; i++){
+  for (let i = 0; i < playerShips.length; i++){
     let position = ('P' + playerShips[i]);
     let boxId = document.getElementById(position);
     let img = document.createElement('img');
