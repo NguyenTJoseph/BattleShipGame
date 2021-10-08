@@ -24,7 +24,7 @@ function getShipLocation(event) {
     let tableLocation = event.target.id;
     let tdId = document.getElementById(tableLocation);
     let img = document.createElement('img');
-    img.setAttribute('src', '/Images/SiteAssets/Battleship-Icon.png');
+    img.setAttribute('src', 'Images/SiteAssets/Battleship-Icon.png');
     img.setAttribute('id', 'battleShipIcon');
     tdId.appendChild(img);
     playerShips.push(tableLocation);
