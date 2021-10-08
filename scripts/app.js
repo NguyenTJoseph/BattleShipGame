@@ -146,7 +146,7 @@ function surrenderButton() {
     name.innerText = 'Play Again';
     wincard.appendChild(name);
     wincard.appendChild(text);
-    wincard.appendChild(button);
+    wincard.appendChild(button)
     loseSound.play();
     surrender = true;
   }

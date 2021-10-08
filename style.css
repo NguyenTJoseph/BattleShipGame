@@ -65,6 +65,7 @@ table td:hover {
   100%{background-color: rgb(255, 1, 1, 0.1);}
 }
 
+
 table th:not(#boardLabel) {
   width: 20px;
   height: 20px;
@@ -80,6 +81,16 @@ table th:not(#boardLabel) {
 
 #board {
   margin-bottom: 10px;
+}
+
+.compBoard {
+  float: left;
+  margin-left: 18%; 
+}
+
+#playerBoard {
+  float: right;
+  margin-right: 18%;
 }
 
 .compBoard {
