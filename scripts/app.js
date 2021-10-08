@@ -137,7 +137,7 @@ function surrenderButton() {
     let wincard = document.getElementById('winCard');
     let name = document.createElement('p');
     let text = document.createElement('p');
-    text.innerText = 'YouLose';
+    text.innerText = 'You Lose';
     name.innerText = playerName;
     let button = document.createElement('button');
     button.className = 'button';
