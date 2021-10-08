@@ -1,90 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = 'en'>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="style.css">
+  <meta charset = 'UTF-8'>
+  <meta http-equiv = 'X-UA-Compatible' content = 'IE = edge'>
+  <meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+  <link rel = 'stylesheet' href = 'reset.css'>
+  <link rel = 'stylesheet' href = 'style.css'>
   <title>Battle Ship</title>
 </head>
 <body>
-  <img id="title" src="Images/SiteAssets/battleship-title.png">
-
-<div id='info'>
-  <p> Welcome to BattleShip! </p><br>
-  <ul>
-    <li>Please choose where you would like to place your 3 ships.</li>
-    <li>To win the game you have to sink the computers ships before they sink yours.</li>
-    <li>The first player to sink all three ships wins.</li>
-    <li>After placing your ships enter your name, and press play to begin the game!</li>
-  </ul>
-  
-  <form id="name">
-    <legend>What's your name?</legend>
-    <label for = 'name'>Enter Name:</label>
-    <input type = 'text' id = 'name' required></type>
-    <input class="button" type = 'submit' value = 'Play!' onclick = 'storeShips()'>
-  </form>
-</div>
-  
-  <div>
-    <table class="playerBoardEntry">
-      <th colspan="6">Player's Board</th>
-      <tr>
-        <th>A</th>
-        <td id="A1"></td>
-        <td id="A2"></td>
-        <td id="A3"></td>
-        <td id="A4"></td>
-        <td id="A5"></td>
-        <th></th>
-      </tr>
-      <tr>
-        <th>B</th>
-        <td id="B1"></td>
-        <td id="B2"></td>
-        <td id="B3"></td>
-        <td id="B4"></td>
-        <td id="B5"></td>
-      </tr>
-      <tr>
-        <th>C</th>
-        <td id="C1"></td>
-        <td id="C2"></td>
-        <td id="C3"></td>
-        <td id="C4"></td>
-        <td id="C5"></td>
-      </tr>
-      <tr>
-        <th>D</th>
-        <td id="D1"></td>
-        <td id="D2"></td>
-        <td id="D3"></td>
-        <td id="D4"></td>
-        <td id="D5"></td>
-      </tr>
-      <tr>
-        <th>E</th>
-        <td id="E1"></td>
-        <td id="E2"></td>
-        <td id="E3"></td>
-        <td id="E4"></td>
-        <td id="E5"></td>
-      </tr>
-      <tr>
-        <th></th>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-        <th>5</th>
-      </tr>
-    </table>
-  </div>
-
-
-
-  <script src="scripts/storeplayerships.js"></script>
+  <header>
+  </header>
+  <main>
+    <img id = 'title' src = 'Images/SiteAssets/battleship-title.png'>
+    <div id = 'info'>
+      <p>Welcome to BattleShip!</p><br>
+      <ul>
+        <li>Please choose where you would like to place your 3 ships.</li>
+        <li>To win the game you have to sink the computers ships before they sink yours.</li>
+        <li>The first player to sink all three ships wins.</li>
+        <li>After placing your ships enter your name, and press play to begin the game!</li>
+      </ul>  
+      <form id = 'name'>
+        <legend>What's your name?</legend>
+        <label for = 'name'>Enter Name: </label>
+        <input type = 'text' id = 'name' required></type>
+        <input class = 'button' type = 'submit' value = 'Play!' onclick = 'storeShips()'>
+      </form>
+    </div>  
+      <div>
+        <table class = 'playerBoardEntry'>
+          <th colspan = '6'>Player's Board</th>
+          <tr>
+            <th>A</th>
+            <td id = 'A1'></td>
+            <td id = 'A2'></td>
+            <td id = 'A3'></td>
+            <td id = 'A4'></td>
+            <td id = 'A5'></td>
+            <th></th>
+          </tr>
+          <tr>
+            <th>B</th>
+            <td id = 'B1'></td>
+            <td id = 'B2'></td>
+            <td id = 'B3'></td>
+            <td id = 'B4'></td>
+            <td id = 'B5'></td>
+          </tr>
+          <tr>
+            <th>C</th>
+            <td id = 'C1'></td>
+            <td id = 'C2'></td>
+            <td id = 'C3'></td>
+            <td id = 'C4'></td>
+            <td id = 'C5'></td>
+          </tr>
+          <tr>
+            <th>D</th>
+            <td id = 'D1'></td>
+            <td id = 'D2'></td>
+            <td id = 'D3'></td>
+            <td id = 'D4'></td>
+            <td id = 'D5'></td>
+          </tr>
+          <tr>
+            <th>E</th>
+            <td id = 'E1'></td>
+            <td id = 'E2'></td>
+            <td id = 'E3'></td>
+            <td id = 'E4'></td>
+            <td id = 'E5'></td>
+          </tr>
+          <tr>
+            <th></th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+          </tr>
+        </table>
+      </div>
+  </main>
+  <footer>
+  </footer>
+  <script src = 'scripts/storeplayerships.js'></script>
 </body>
 </html>
