@@ -61,16 +61,22 @@ function getRandomPosition () {
 function computerStrike() {
   let table = document.getElementById('playerBoard');
   let missile = document.getElementById('missile');
+  
+  // Removes missile
   if (missileStatus === true) {
     missile.remove();
     missileStatus = false;
   }
+  
+
   if (playerHits !== 3){
     let list = document.getElementById('computerlist');
     let strikeSpot = getRandomPosition();
     let id = ('P' + strikeSpot);
     let boxId = document.getElementById(id);
     let temp = false;
+
+    // Check for duplicate strikes
     for (let i = 0; i < computerStrikes.length; i++){
       if (strikeSpot === computerStrikes[i]) {
         temp = true;
@@ -78,6 +84,8 @@ function computerStrike() {
     }
     if (temp === false) {
       let x = 0;
+
+      // Check for hit
       for (let i = 0;i < 3; i++) {
         x++;
         if (strikeSpot === playerShips[i]){
@@ -87,18 +95,23 @@ function computerStrike() {
           icon.setAttribute('id', 'explosion');
           computerHits++;
           x = 0;
+          // Applies table shake animation
           let animationEndCallback = (e) => {
             table.removeEventListener('animationend', animationEndCallback);
             table.classList.remove('applySwing');
           };
           table.classList.add('applySwing');
           table.addEventListener('animationend', animationEndCallback);
+
+
           status1 = false;
           let li = document.createElement('li');
           li.innerText = (strikeSpot + ' Hit');
           list.appendChild(li);
         }
       }
+
+      // If computer misses
       if (x === 3) {
         missSound.play();
         boxId.innerText = 'MISS';
@@ -107,6 +120,8 @@ function computerStrike() {
         li.innerText = (strikeSpot + ' Miss');
         list.appendChild(li);
       }
+
+      // Win Card if computer wins
       if (computerHits === 3) {
         let wincard = document.getElementById('winCard');
         let name = document.createElement('p');
@@ -123,6 +138,8 @@ function computerStrike() {
         loseSound.play();
       }
       computerStrikes.push(strikeSpot);
+
+      // Rerun if duplicate strike position
     } else {
       console.log('repeat');
       computerStrike();
@@ -158,9 +175,13 @@ function playerStrike(event){
   let table = document.getElementsByClassName('compBoard')[0];
   let loadBar = document.getElementById('progress-value');
   let temp = false;
+
+  // Prevents clicks if game has been won
   if (playerHits < 3 && computerHits < 3 && status1 === false && surrender === false) {
     let boxId = event.target.id;
     let td = document.getElementById(boxId);
+
+  // Checks for duplicate strikes
     for (let i = 0; i < playerStrikes.length; i++){
       if (temp === false){
         if (boxId === playerStrikes[i]) {
@@ -173,6 +194,7 @@ function playerStrike(event){
       for (let i = 0; i < 3; i++){
         if (x < 3) {
           x++;
+// Check if strike hits
           if (boxId === computerShips[i]) {
             hitSound.play();
             let img = document.createElement('img');
@@ -181,6 +203,7 @@ function playerStrike(event){
             td.appendChild(img);
             playerHits++;
             x = 0;
+            // Apply animation for board shake
             let animationEndCallback = (e) => {
               table.removeEventListener('animationend', animationEndCallback);
               table.classList.remove('applySwing');
@@ -193,6 +216,7 @@ function playerStrike(event){
           }
         }
       }
+// If strike misses
       if (x === 3) {
         missSound.play();
         td.innerText = 'MISS';
@@ -200,6 +224,7 @@ function playerStrike(event){
         li.innerText = (boxId + ' Miss');
         list.appendChild(li);
       }
+// If player wins create win card
       if (playerHits === 3) {
         let wincard = document.getElementById('winCard');
         let name = document.createElement('p');
@@ -216,6 +241,8 @@ function playerStrike(event){
         winSound.play();
       }
       playerStrikes.push(boxId);
+      
+      // Missile loading bar animation
       status1 = true;
       let div = document.getElementById('progress');
       let missile = document.createElement('img');
